@@ -2,7 +2,7 @@
 My configuration for i3Desktop with i3Gaps under Archlinux
 
 to install my configuration, do the following steps
-```
+```bash
 # copy everything in home
 cp ./* ~/
 
