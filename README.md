@@ -3,9 +3,17 @@ My configuration for i3Desktop with i3Gaps under Archlinux
 
 to install my configuration, do the following steps
 ```
-sudo pacman -S ttf-font-awesome-4 
+# copy everything in home
+cp ./* ~/
+
+# install awesome fonts
+yaourt -S ttf-font-awesome-4 
+
+# set new commands
 sudo mv .lock /bin/lock
 sudo mv .cool-rofi /bin/cool-rofi
+
+# restart computer to reload font
 reboot
 ```
 
