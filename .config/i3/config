@@ -211,6 +211,8 @@ exec --no-startup-id xrandr --output HDMI-0 --primary
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id albert
+exec --no-startup-id redshift
+
 exec compton --config ~/.compton.conf
 
 #volume controller
