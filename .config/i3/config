@@ -182,9 +182,9 @@ bar {
 		inactive_workspace $main5 $main5 $main2
 	}
 	position top
-	tray_output primary
+	#tray_output primary
 	status_command i3blocks 
-        # status_command i3status
+        #status_command i3status
 }
 
 # CAPS AND NUM LOCK I3BLOCKS
