@@ -219,3 +219,14 @@ exec compton --config ~/.compton.conf
 bindsym XF86AudioRaiseVolume exec "amixer set Master 1%+ && pkill -RTMIN+1 i3blocks"
 bindsym XF86AudioLowerVolume exec "amixer set Master 1%- && pkill -RTMIN+1 i3blocks"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle && pkill -RTMIN+1 i3blocks"
+
+## Screen brightness controls
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+
+# Screen brightness controls with notification
+# bindsym XF86MonBrightnessUp exec "light -A 5; notify-send 'brightness up'" # increase screen brightness with notification
+# bindsym XF86MonBrightnessDown exec "light -U 5; notify-send 'brightness down'" # decrease screen brightness with notification
+

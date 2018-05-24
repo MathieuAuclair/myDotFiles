@@ -6,6 +6,11 @@ to install my configuration, do the following steps
 # copy everything in home
 cp ./* ~/
 
+# install light to control screen brightness
+git clone https://github.com/haikarainen/light.git
+make
+sudo make install
+
 # install awesome fonts
 yaourt -S ttf-font-awesome-4 
 
