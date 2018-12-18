@@ -3,6 +3,13 @@ My configuration for i3Desktop with i3Gaps under Archlinux
 
 to install my configuration, do the following steps
 ```bash
+# pre install for zsh & vim
+# ZSH
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# VIM
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 # copy everything in home
 cp ./* ~/
 
