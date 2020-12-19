@@ -27,6 +27,10 @@ sudo mv .cool-rofi /bin/cool-rofi
 
 # restart computer to reload font
 reboot
+
+# Activate sudo for user
+# Just uncomment the %wheel ALL=ALL
+EDITOR=vim visudo
 ```
 
 # Issues
