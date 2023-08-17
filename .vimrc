@@ -9,11 +9,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 
-"availible colorscheme
-"molokai
-"PaperColor
-":AirlineTheme
-
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'thaerkh/vim-workspace'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -25,7 +20,19 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'prettier/vim-prettier'
+Plugin 'brooth/far.vim'
 
+"Typescript
+Plugin 'pangloss/vim-javascript'    " JavaScript support
+Plugin 'leafgarland/typescript-vim' " TypeScript syntax
+Plugin 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plugin 'jparise/vim-graphql'        " GraphQL syntax
+Plugin 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
+Plugin 'puremourning/vimspector' " Debugger
+
+Bundle 'OmniSharp/omnisharp-vim'
 Bundle "b3niup/numbers.vim"
 
 
@@ -38,7 +45,11 @@ filetype plugin indent on    " required
 "
 "
 "basic setting for themes plugins
+
+"All themes are listed under the following directory
+".vim/bundle/vim-colorschemes/colors/
 colorscheme molokai
+
 let g:airline_theme='distinguished'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -52,7 +63,11 @@ set laststatus=2
 set showtabline=1
 set noshowmode
 set t_Co=256
-"
+
+"Tabulation
+set tabstop=4 shiftwidth=4 expandtab
+
+set nowrap
 
 "Break the habits to use arrow keys
 
@@ -74,6 +89,51 @@ map <C-n> :NERDTreeToggle<CR>
 "nerdTree symbols for exploring folder
 let g:NERDTreeDirArrowExpandable =  '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+"Typescript settings
+let g:coc_global_extensions = ['coc-tsserver'] 
+"
+"CoC autocomplete
+"inoremap <silent><expr> <C-m> coc#_select_confirm() 
+
+" use <tab> for trigger completion and navigate to next complete item
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction
+
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+
+" Autoformat
+nnoremap <C-S-i> :Prettier<CR>
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+"Typescript debugger mapping
+nnoremap <Space>dd :call vimspector#Launch()<CR>
+nnoremap <Space>de :call vimspector#Reset()<CR>
+nnoremap <Space>dc :call vimspector#Continue()<CR>
+
+nnoremap <Space>dt :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <Space>dT :call vimspector#ClearBreakpoints()<CR>
+
+nmap <Space>dk <Plug>VimspectorRestart
+nmap <Space>dh <Plug>VimspectorStepOut
+nmap <Space>dl <Plug>VimspectorStepInto
+nmap <Space>dj <Plug>VimspectorStepOver
+
+"Tab change
+nnoremap <C-Left> :tabprevious<CR>                                                                            
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-j> :tabprevious<CR>                                                                            
+nnoremap <C-k> :tabnext<CR>
 
 "Syntastic settings
 
